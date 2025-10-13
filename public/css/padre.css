@@ -1,0 +1,29 @@
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #ff6b81; /* Rosa/salmón elegante */
+        }
+        .navbar-nav .nav-link {
+            color: #333;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ff6b81;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #ff6b81; /* Salmón */
+            color: white;
+            padding: 2rem 0;
+        }
+        footer a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #fff3f5; /* un rosa más claro al pasar el mouse */
+        }
