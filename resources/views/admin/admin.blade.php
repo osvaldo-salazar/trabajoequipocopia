@@ -15,14 +15,21 @@
             </div>
             
             <div class="sidebar-nav">
-                <a class="nav-link" href="#">
+                <div class="sidebar-nav">
+                <a class="nav-link" href="{{ route('admin.noticias.create') }}" data-bs-toggle="collapse">
                     Noticias
                 </a>
+
+                 <a href="#" class="nav-link" data-bs-toggle="collapse">
+                    lista de noticias
+                 </a>
+
+
                 <a class="nav-link" href="#">
                     Administrar secciones
                 </a>
                 <a class="nav-link" href="#">
-                    Imágenes Hero
+                    Imágenes Hero   
                 </a>
                 
                 <!-- Links a páginas públicas -->
