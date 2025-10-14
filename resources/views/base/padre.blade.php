@@ -28,7 +28,7 @@
                         <a class="nav-link" href="{{ url('/') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/about') }}">Noticias</a>
+                        <a class="nav-link" href="{{ route('noticias.index') }}">Noticias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/contact') }}">Quienes somos</a>
