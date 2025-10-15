@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\configuracion>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ConfiguracionModel>
  */
 class configuracionFactory extends Factory
 {
@@ -17,6 +17,7 @@ class configuracionFactory extends Factory
     public function definition(): array
     {
         return [
+
             //
         ];
     }

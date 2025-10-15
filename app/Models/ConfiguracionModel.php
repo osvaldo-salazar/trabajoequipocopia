@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Configuracion extends Model
+class ConfiguracionModel extends Model
 {
     /** @use HasFactory<\Database\Factories\configuracion> */
     use HasFactory;
@@ -16,7 +16,7 @@ class Configuracion extends Model
      * @var list<string>
      */
 
-    protected $table = 'configuraciones';
+    protected $table = 'configuracion';
     protected $primaryKey = 'idConfiguracion';
 
     protected $fillable = [

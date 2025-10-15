@@ -1,0 +1,20 @@
+.form-check-input {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.form-check-input:checked {
+    background-color: #198754;
+    border-color: #198754;
+}
+.form-check-input:hover {
+    transform: scale(1.1);
+}
+.save-btn {
+    transition: all 0.2s ease-in-out;
+}
+.save-btn:hover {
+    transform: scale(1.05);
+}
+.alert {
+    transition: all 0.4s ease-in-out;
+}

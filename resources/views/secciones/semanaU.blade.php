@@ -1,4 +1,4 @@
-@extends('base.padre')
+@extends('admin.admin')
 
 @section('titulo', 'Semana U')
 
