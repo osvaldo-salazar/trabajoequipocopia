@@ -1,38 +1,26 @@
-document.getElementById('seccionesForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.querySelectorAll('.toggle-section').forEach(toggle => {
+    toggle.addEventListener('change', function() {
+        const section = this.dataset.section;
+        const estado = this.checked ? 1 : 0;
 
-    const data = {
-        _token: document.querySelector('input[name="_token"]').value,
-        section_matricula: document.getElementById('matricula').checked ? 1 : 0,
-        section_semana_u: document.getElementById('semana_u').checked ? 1 : 0,
-    };
-
-    fetch("{{ route('secciones.update') }}", {
-        method: "POST",
+        fetch(sectionUrl, {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "X-CSRF-TOKEN": data._token,
+            'X-CSRF-TOKEN': csrfToken,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(response => {
-        const alertBox = document.getElementById('alerta');
-        alertBox.style.display = 'block';
-        alertBox.className = 'alert alert-success show';
-        alertBox.textContent = response.message;
-
-        setTimeout(() => {
-            alertBox.classList.remove('show');
-            alertBox.style.display = 'none';
-        }, 2500);
-    })
-    .catch(err => {
-        const alertBox = document.getElementById('alerta');
-        alertBox.style.display = 'block';
-        alertBox.className = 'alert alert-danger show';
-        alertBox.textContent = 'Error al actualizar las secciones.';
-        console.error(err);
+        body: JSON.stringify({ section, estado })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('successMsg').textContent = data.message;
+                new bootstrap.Toast(document.getElementById('successToast')).show();
+            } else {
+                new bootstrap.Toast(document.getElementById('errorToast')).show();
+            }
+        })
+        .catch(() => new bootstrap.Toast(document.getElementById('errorToast')).show());
     });
 });

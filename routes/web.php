@@ -13,5 +13,5 @@ Route::POST('/admin/configuracion', [Configuracion::class, 'update'])->name('adm
 
 Route::get('/admin/semanau', [Configuracion::class, 'semanau'])->name('secciones.semanau');
 
-Route::post('/secciones.update', [Configuracion::class, 'section'])->name('secciones.section');
+Route::post('/secciones.section', [Configuracion::class, 'section'])->name('secciones.section');
 

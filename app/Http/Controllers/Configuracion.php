@@ -12,7 +12,8 @@ class Configuracion extends Controller
     public function index()
     {
 
-        return view('admin.admin');
+        $config = ConfiguracionModel::first();
+        return view('secciones.semanaU', compact('config'));
     }
 
     public function configuracion()
@@ -63,6 +64,36 @@ class Configuracion extends Controller
         }
 
         return response()->json(['success' => true, 'message' => 'Imágenes actualizadas correctamente']);
+    }
+
+        public function semanau()
+    {
+        $config = ConfiguracionModel::first();
+        return view('admin.section_semanau', compact('config'));
+    }
+
+    public function section(Request $request)
+    {
+        $request->validate([
+            'section' => 'required|string|in:section_matricula,section_semana_u',
+            'estado' => 'required|boolean',
+        ]);
+
+        $config = ConfiguracionModel::first();
+
+        if (!$config) {
+            return response()->json(['success' => false, 'message' => 'No existe registro de configuración']);
+        }
+
+        $config->update([
+            $request->section => $request->estado
+        ]);
+
+        $mensaje = $request->estado
+            ? 'Sección activada correctamente ✅'
+            : 'Sección desactivada correctamente 🚫';
+
+        return response()->json(['success' => true, 'message' => $mensaje]);
     }
 
 }
