@@ -12,7 +12,7 @@ class NoticiaController extends Controller
    public function index()
 {
     $noticias = Noticia::orderBy('fecha', 'desc')->get();
-    return view('admin.noticias.create', compact('noticias'));
+    return view('admin.noticiasAdmin.create', compact('noticias'));
 }
 
 public function store(Request $request)
@@ -52,16 +52,29 @@ public function store(Request $request)
     return redirect()->back()->with('success', 'Noticia agregada correctamente.');
 }
 
-}
-//  public function index()
-//     {
-//         $noticias = Noticia::where('activo', true)->orderBy('fecha', 'desc')->get();
-//         return view('noticias.index', compact('noticias'));
-//     }
 
+// Mostrar solo la lista de noticias en admin
+public function lista()
+{
+    $noticias = Noticia::orderBy('fecha', 'desc')->get();
+    return view('admin.noticiasAdmin.lista_noticias', compact('noticias'));
+}
+
+public function destroy(Noticia $noticia)
+{
+    // Eliminar la imagen si existe
+    if ($noticia->imagen && file_exists(public_path($noticia->imagen))) {
+        unlink(public_path($noticia->imagen));
+    }
+
+    // Eliminar noticia de la BD
+    $noticia->delete();
+
+    return redirect()->route('admin.noticias.lista')
+                     ->with('success', 'Noticia eliminada correctamente.');
+}
+
+
+
+}
     
-//     public function show($id)
-//     {
-//         $noticia = Noticia::findOrFail($id);
-//         return view('noticias.show', compact('noticia'));
-//     }

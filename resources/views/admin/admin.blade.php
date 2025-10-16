@@ -15,15 +15,13 @@
             </div>
             
             <div class="sidebar-nav">
-                <div class="sidebar-nav">
-                <a class="nav-link" href="{{ route('admin.noticias.create') }}" data-bs-toggle="collapse">
-                    Noticias
+                <a class="nav-link" href="{{ route('admin.noticias.create') }}">
+                    Agregar Noticias
                 </a>
 
-                 <a href="#" class="nav-link" data-bs-toggle="collapse">
-                    lista de noticias
-                 </a>
-
+                <a class="nav-link" href="{{ route('admin.noticias.lista') }}">
+                    Lista de Noticias
+                </a>
 
                 <a class="nav-link" href="#">
                     Administrar secciones

@@ -11,14 +11,16 @@
 
         @if($noticia->imagen)
             <div class="text-center mb-4">
-                <img src="{{ asset('storage/' . $noticia->imagen) }}" class="img-fluid rounded shadow" alt="{{ $noticia->titulo }}">
+                <img src="{{ asset($noticia->imagen) }}" class="img-fluid rounded shadow" alt="{{ $noticia->titulo }}">
             </div>
         @endif
 
         <div class="mb-5">
-            <p class="lead">{{ $noticia->descripcion_larga }}</p>
+            <p class="lead">{!! $noticia->descripcion_larga !!}</p>
         </div>
 
-        <a href="{{ route('noticias.index') }}" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Volver a Noticias</a>
+        <a href="{{ route('noticias.index') }}" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Volver a Noticias
+        </a>
     </div>
 @endsection
