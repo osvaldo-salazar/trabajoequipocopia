@@ -2,8 +2,6 @@
 
 @section('title', 'Control de Secciones')
 
-
-
 @section('content')
 
     <div class="container py-5">

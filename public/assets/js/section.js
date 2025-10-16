@@ -23,8 +23,6 @@ document.getElementById('seccionesForm').addEventListener('submit', function(e) 
         alertBox.className = 'alert alert-success show';
         alertBox.textContent = response.message;
 
-
-
         setTimeout(() => {
             alertBox.classList.remove('show');
             alertBox.style.display = 'none';
