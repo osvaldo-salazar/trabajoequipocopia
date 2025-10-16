@@ -9,7 +9,7 @@ Route::get('/', [Configuracion::class, 'index'])->name('admin.configuracion.inde
 
 Route::get('/admin/configuracion', [Configuracion::class, 'configuracion'])->name('admin.configuracion');
 
-Route::put('/admin/configuracion', [Configuracion::class, 'update'])->name('admin.configuracion.update');
+Route::POST('/admin/configuracion', [Configuracion::class, 'update'])->name('admin.configuracion.update');
 
 Route::get('/admin/semanau', [Configuracion::class, 'semanau'])->name('secciones.semanau');
 

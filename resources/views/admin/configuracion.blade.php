@@ -2,92 +2,79 @@
 
 @section('title', 'Configuración')
 
-
-
 @section('content')
-    <div class="container mt-5">
-        <h3 class="text-center mb-4 fw-bold">Configuración de Imágenes</h3>
+    <div class="container py-4">
+        <h3 class="text-center mb-4 fw-bold">Configuración de Hero</h3>
 
-        @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        @endif
+            <form action="{{ route('admin.configuracion.update') }}" method="POST" id="configForm" enctype="multipart/form-data">
+                @csrf
+                <div class="row g-4">
+                    @php
+                        $imagenes = collect([
+                            'hero_home' => 'Imagen Hero Home',
+                            'hero_quienes_somos' => 'Imagen Hero Quiénes Somos',
+                            'hero_noticias' => 'Imagen Hero Noticias',
+                            'logo_home' => 'Logo'
+                        ]);
+                    @endphp
 
-        <form action="{{ route('admin.configuracion.update') }}" method="POST" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-white">
-            @csrf
-            @method('PUT')
+                    @foreach($imagenes->chunk(2) as $grupo)
+                        <div class="row mb-4">
+                            @foreach($grupo as $key => $label)
+                                <div class="col-md-6">
+                                    <div class="card shadow-sm border-0 rounded-4">
+                                        <div class="card-body text-center">
+                                            <h6 class="fw-bold mb-3">{{ $label }}</h6>
 
-        <div class="row g-4">
-            @foreach([
-                'hero_home' => 'Hero Home',
-                'hero_quienes_somos' => 'Hero Quienes Somos',
-                'hero_noticias' => 'Hero Noticias',
-                'logo_home' => 'Logo Home'
-            ] as $campo => $label)
-                <div class="col-md-6">
-                    <div class="card border-0 shadow-sm p-3 position-relative hover-card">
-                        <h6 class="fw-bold mb-2">{{ $label }}</h6>
+                                            <img src="{{ asset($config->$key ?? 'assets/default.png') }}"
+                                                id="preview_{{ $key }}"
+                                                class="img-fluid rounded mb-3"
+                                                style="max-height: 150px; object-fit: cover;">
 
-                        @if($config->$campo)
-                            <div class="text-center mb-3">
-                                <img src="{{ asset($config->$campo) }}" class="img-thumbnail preview-img" alt="Vista previa" style="max-height: 150px;">
-                            </div>
-                        @endif
-
-                        <div class="d-flex align-items-center gap-2">
-                            <input type="file" name="{{ $campo }}" class="form-control @error($campo) is-invalid @enderror" accept="image/*" onchange="previewImage(event, '{{ $campo }}')">
-                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-{{ $campo }}">
-                                <i class="bi bi-eye"></i>
-                            </button>
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <label class="btn btn-info btn-sm position-relative">
+                                                    Cambiar imagen
+                                                    <input type="file" name="{{ $key }}" class="d-none" accept="image/*"
+                                                        onchange="previewImage(this, '{{ $key }}')">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
-
-                        @error($campo)
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                    @endforeach
                 </div>
 
-                <!-- Modal de vista previa -->
-                <div class="modal fade" id="modal-{{ $campo }}" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">{{ $label }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                @if($config->$campo)
-                                    <img src="{{ asset($config->$campo) }}" class="img-fluid rounded shadow">
-                                @else
-                                    <p class="text-muted">No hay imagen cargada.</p>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success px-5 py-2 shadow-sm">
+                        Guardar Cambios
+                    </button>
                 </div>
-            @endforeach
+            </form>
         </div>
 
-            <div class="text-center mt-4">
-                <button type="submit" class="btn btn-success px-4 py-2 fw-bold shadow-sm save-btn">
-                    Guardar Cambios
-                </button>
+        <!-- Toast de notificación -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+            <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body fw-semibold">Imágenes actualizadas correctamente ✅</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
             </div>
-        </form>
+            <div id="errorToast" class="toast align-items-center text-white bg-danger border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body fw-semibold">Ocurrió un error al actualizar 🚫</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script>
-    function previewImage(event, campo) {
-        const reader = new FileReader();
-        reader.onload = function(){
-            const preview = document.querySelector(`[name="${campo}"]`).closest('.card').querySelector('.preview-img');
-            if(preview) preview.src = reader.result;
-        }
-        reader.readAsDataURL(event.target.files[0]);
-    }
-    </script>
+<script>
+    const updateUrl = "{{ route('admin.configuracion.update') }}";
+    const csrfToken = "{{ csrf_token() }}";
+</script>
 @endsection
 
 @section('scripts')
