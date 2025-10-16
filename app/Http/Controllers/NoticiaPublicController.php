@@ -22,6 +22,14 @@ class NoticiaPublicController extends Controller
         return view('noticias.show', compact('noticia'));
     }
 
+  public function mostrar_carrsuel($id)
+{
+    $noticia = \App\Models\Noticia::findOrFail($id);
+    return view('noticias.index', compact('noticia'));
+}
+
+
+
 
 }
 

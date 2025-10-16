@@ -3,18 +3,33 @@
 @section('titulo', 'Noticias')
 
 @section('contenido')
-    <!-- Hero -->
-    <div class="hero mb-5">
-        <div class="position-relative text-center text-white">
-            <img src="{{ asset('images/hero-noticias.jpg') }}" class="img-fluid w-100" alt="Noticias" style="max-height: 400px; object-fit: cover;">
-            <div class="position-absolute top-50 start-50 translate-middle">
-                <h1 class="display-5 fw-bold">Noticias</h1>
-                <p class="lead">Mantente al día con lo más reciente</p>
-            </div>
+    <!-- Carrusel de noticias destacadas -->
+    @if($destacadas->count() > 0)
+    <div id="carouselDestacadas" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach($destacadas as $index => $noticia)
+                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                    <img src="{{ asset($noticia->imagen) }}" class="d-block w-100" style="max-height: 400px; object-fit: cover;" alt="{{ $noticia->titulo }}">
+                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                        <h5>{{ $noticia->titulo }}</h5>
+                        <p>{{ Str::limit($noticia->descripcion_corta, 120) }}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    </div>
 
-    <!-- Lista de noticias -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestacadas" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselDestacadas" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+    @endif
+
+    <!-- Lista de todas las noticias -->
     <div class="row">
         @forelse ($noticias as $noticia)
             <div class="col-md-4 mb-4">

@@ -26,3 +26,5 @@ Route::delete('/admin/noticias/{noticia}', [NoticiaController::class, 'destroy']
 
  Route::get('/noticias', [NoticiaPublicController::class, 'index'])->name('noticias.index');
 Route::get('/noticias/{id}', [NoticiaPublicController   ::class, 'show'])->name('noticias.show');
+// Página de noticias con el carrusel (noticias destacadas)
+Route::get('/noticias', [NoticiaController::class, 'vistaNoticias'])->name('noticias.index');

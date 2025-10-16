@@ -75,6 +75,26 @@ public function destroy(Noticia $noticia)
 }
 
 
+// Mostrar noticias públicas (vista del sitio web)
+public function vistaNoticias()
+{
+    // Traer las noticias activas y ordenadas por fecha
+    $noticias = \App\Models\Noticia::where('activo', true)
+        ->orderBy('fecha', 'desc')
+        ->get();
+
+    // Noticias destacadas (para el carrusel)
+    $destacadas = \App\Models\Noticia::where('destacado', true)
+        ->where('activo', true)
+        ->orderBy('fecha', 'desc')
+        ->take(3) // mostrar hasta 3 en el carrusel
+        ->get();
+
+    // Retornar la vista pública
+    return view('noticias.index', compact('noticias', 'destacadas'));
+}
+
+
 
 }
     
