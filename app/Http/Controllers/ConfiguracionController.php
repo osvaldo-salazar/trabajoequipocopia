@@ -8,6 +8,6 @@ class ConfiguracionController extends Controller
 {
     public function base()
     {
-        return view('admin.base');
+        return view('admin.admin');
     }
 }
