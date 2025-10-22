@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ConfiguracionController extends Controller
 {
-    public function index()
+    public function base()
     {
         return view('admin.admin');
     }

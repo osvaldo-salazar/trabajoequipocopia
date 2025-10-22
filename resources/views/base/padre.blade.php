@@ -25,33 +25,27 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Inicio</a>
+                        <a class="nav-link" href="{{ url('/home') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/about') }}">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/contact') }}">Quienes somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/semana') }}">Semana U</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/matricula') }}">Periodo de matrícula</a>
+                        <a class="nav-link" href="{{ url('/quienes') }}">Quienes somos</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+  @yield('hero')
+<main class="py-4">
+    <div class="container">
+        @yield('contenido')
+    </div>
+</main>
 
-    <!-- Contenido principal -->
-    <main class="py-4">
-        <div class="container">
-            @yield('contenido')
-        </div>
-    </main>
 
-    <!-- Footer -->
+<!-- Footer -->
     <footer class=" mt-5 py-4" id="footer">
         <div class="container text-center">
             <p>Síguenos en redes sociales</p>

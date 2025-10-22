@@ -28,7 +28,7 @@
                 <!-- Links a páginas públicas -->
                 <div class="public-links">
                     <small>Ir al Sitio Web:</small>
-                    <a class="nav-link" href="/inicio" target="_blank">
+                    <a class="nav-link" href="/home" target="_blank">
                         Página Principal
                     </a>
                 </div>
