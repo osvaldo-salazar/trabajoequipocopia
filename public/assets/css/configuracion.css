@@ -1,0 +1,20 @@
+.hover-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.save-btn {
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+.save-btn:hover {
+    background-color: #198754;
+    transform: scale(1.05);
+}
+.preview-img {
+    transition: transform 0.2s ease-in-out;
+}
+.preview-img:hover {
+    transform: scale(1.1);
+}
