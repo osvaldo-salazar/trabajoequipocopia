@@ -24,7 +24,9 @@
     <!-- Header -->
     <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('admin/semanau') }}">Trabajo en equipo</a>
+            <a class="navbar-brand" href="{{ url('admin/semanau') }}">
+                <img src="{{ asset($config->logo_home) }}" alt="Logo" width="120px" height="90px">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -73,7 +75,6 @@
             <p class="mb-0">&copy; {{ date('Y') }} MiProyecto. Todos los derechos reservados.</p>
         </div>
     </footer>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\ConfiguracionModel;
 
 class NoticiaController extends Controller
 {
@@ -78,6 +79,7 @@ public function destroy(Noticia $noticia)
 // Mostrar noticias públicas (vista del sitio web)
 public function vistaNoticias()
 {
+     $config = ConfiguracionModel::first();
     // Traer las noticias activas y ordenadas por fecha
     $noticias = \App\Models\Noticia::where('activo', true)
         ->orderBy('fecha', 'desc')
@@ -91,7 +93,7 @@ public function vistaNoticias()
         ->get();
 
     // Retornar la vista pública
-    return view('noticias.index', compact('noticias', 'destacadas'));
+    return view('noticias.index', compact('noticias', 'destacadas','config'));
 }
 
 

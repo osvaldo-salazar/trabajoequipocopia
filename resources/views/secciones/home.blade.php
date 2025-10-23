@@ -16,65 +16,64 @@
 @section('contenido')
     <!-- Semana U -->
     @if($config->section_semana_u ?? true)
-    <section class="py-5 bg-light" id="semana-u">
-        <div class="container">
-            <h2 class="text-center mb-4">Semana U</h2>
-            <p class="text-center mb-4">Descubre todas las actividades y eventos de la Semana Universitaria.</p>
-            <div class="row text-center">
-                <div class="col-md-4 mb-3">
-                    <i class="bi bi-calendar-event fs-1 mb-2"></i>
-                    <h5>Agenda Completa</h5>
-                    <p>Conoce todas las actividades programadas para disfrutar al máximo.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <i class="bi bi-people-fill fs-1 mb-2"></i>
-                    <h5>Participación Estudiantil</h5>
-                    <p>Participa en talleres, conferencias y competencias con tus compañeros.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <i class="bi bi-star fs-1 mb-2"></i>
-                    <h5>Experiencias Únicas</h5>
-                    <p>Vive momentos inolvidables y fortalece lazos con la comunidad universitaria.</p>
-                </div>
+<section class="py-5 bg-primary bg-gradient" id="semana-u">
+    <div class="container">
+        <h2 class="text-center mb-4 text-white">Semana U</h2>
+        <p class="text-center mb-4 text-white-50">Descubre todas las actividades y eventos de la Semana Universitaria.</p>
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <i class="bi bi-calendar-event fs-1 mb-2 text-white"></i>
+                <h5 class="text-white">Agenda Completa</h5>
+                <p class="text-white-50">Conoce todas las actividades programadas para disfrutar al máximo.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="bi bi-people-fill fs-1 mb-2 text-white"></i>
+                <h5 class="text-white">Participación Estudiantil</h5>
+                <p class="text-white-50">Participa en talleres, conferencias y competencias con tus compañeros.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="bi bi-star fs-1 mb-2 text-white"></i>
+                <h5 class="text-white">Experiencias Únicas</h5>
+                <p class="text-white-50">Vive momentos inolvidables y fortalece lazos con la comunidad universitaria.</p>
             </div>
         </div>
-    </section>
-    <hr>
-    @endif
+    </div>
+</section>
+<hr>
+@endif
 
-    <!-- Periodo de matrícula -->
-    @if($config->section_matricula ?? true)
-    <section class="py-5 bg-light" id="periodo-matricula">
-        <div class="container">
-            <h2 class="text-center mb-4">Periodo de Matrícula</h2>
-            <p class="text-center mb-4">Toda la información que necesitas para inscribirte y organizar tu semestre.</p>
-            <div class="row text-center">
-                <div class="col-md-4 mb-3">
-                    <i class="bi bi-pencil-square fs-1 mb-2"></i>
-                    <h5>Inscripción Fácil</h5>
-                    <p>Realiza tu matrícula de forma rápida y sencilla desde cualquier dispositivo.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <i class="bi bi-clock-history fs-1 mb-2"></i>
-                    <h5>Fechas Importantes</h5>
-                    <p>No pierdas ninguna fecha clave del periodo de matrícula para organizar tu semestre.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <i class="bi bi-cash-stack fs-1 mb-2"></i>
-                    <h5>Pagos y Financiamiento</h5>
-                    <p>Conoce las opciones de pago disponibles y financiamiento si lo necesitas.</p>
-                </div>
+@if($config->section_matricula ?? true)
+<section class="py-5 bg-success bg-gradient" id="periodo-matricula">
+    <div class="container">
+        <h2 class="text-center mb-4 text-white">Periodo de Matrícula</h2>
+        <p class="text-center mb-4 text-white-50">Toda la información que necesitas para inscribirte y organizar tu semestre.</p>
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <i class="bi bi-pencil-square fs-1 mb-2 text-white"></i>
+                <h5 class="text-white">Inscripción Fácil</h5>
+                <p class="text-white-50">Realiza tu matrícula de forma rápida y sencilla desde cualquier dispositivo.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="bi bi-clock-history fs-1 mb-2 text-white"></i>
+                <h5 class="text-white">Fechas Importantes</h5>
+                <p class="text-white-50">No pierdas ninguna fecha clave del periodo de matrícula para organizar tu semestre.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="bi bi-cash-stack fs-1 mb-2 text-white"></i>
+                <h5 class="text-white">Pagos y Financiamiento</h5>
+                <p class="text-white-50">Conoce las opciones de pago disponibles y financiamiento si lo necesitas.</p>
             </div>
         </div>
-    </section>
-    <hr>
-    @endif
+    </div>
+</section>
+<hr>
+@endif
 
     <!-- Eventos Especiales -->
     <section class="py-5 bg-light" id="eventos-especiales">
         <div class="container">
             <h2 class="text-center mb-4">Eventos Especiales</h2>
-            <p class="text-center mb-4">Participa en actividades únicas que la universidad prepara cada semestre.</p>
+            <p class="text-center mb-4">Toda la informacion necesario de cada evento.</p>
             <div class="row text-center">
                 <div class="col-md-4 mb-3">
                     <i class="bi bi-music-note-beamed fs-1 mb-2"></i>
@@ -100,7 +99,7 @@
     <section class="py-5 bg-light" id="servicios-estudiantes">
         <div class="container">
             <h2 class="text-center mb-4">Servicios para Estudiantes</h2>
-            <p class="text-center mb-4">Todo lo que necesitas para aprovechar al máximo tu vida universitaria.</p>
+            <p class="text-center mb-4">Todo lo que necesitas los estudiantes de nuevo ingreso.</p>
             <div class="row text-center">
                 <div class="col-md-4 mb-3">
                     <i class="bi bi-book fs-1 mb-2"></i>
