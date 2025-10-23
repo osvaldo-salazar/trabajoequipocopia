@@ -2,14 +2,18 @@
 
 @section('titulo','Bienvenido al home')
 
+
 @section('hero')
     <!-- Hero Section -->
-    <section class="hero d-flex align-items-center justify-content-center text-center text-white" style="background: linear-gradient(to right, #ff758c, #ff7eb3); height: 45vh;">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-3">Bienvenido al hero de inicio</h1>
-            <p class="lead mb-4">Holaaaa</p>
-        </div>
-    </section>
+<section class="hero d-flex align-items-center justify-content-center text-center text-white" 
+    style="background: url('{{ asset($config->hero_home) }}') no-repeat center center; 
+           background-size: cover; 
+           height: 45vh;">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-3">Bienvenido al hero de inicio</h1>
+        <p class="lead mb-4">Holaaaa</p>
+    </div>
+</section>
 @endsection
 
 @section('contenido')
@@ -117,4 +121,13 @@
         </div>
     </div>
 </section>
+@endsection
+<script>
+    const sectionUrl = "{{ route('secciones.section') }}";
+    const csrfToken = "{{ csrf_token() }}";
+</script>
+
+
+@section('scripts')
+    <script src="{{ asset('assets/js/section.js') }}"></script>
 @endsection

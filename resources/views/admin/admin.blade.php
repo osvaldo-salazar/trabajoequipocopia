@@ -34,7 +34,7 @@
                 <div class="public-links">
                     <small>Ir al Sitio Web:</small>
 
-                    <a class="nav-link" href="/" target="_blank">
+                    <a class="nav-link" href="{{ url('/home') }}" target="_blank">
                         Página Principal
                     </a>
                 </div>

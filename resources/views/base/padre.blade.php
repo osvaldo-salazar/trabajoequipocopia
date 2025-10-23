@@ -16,13 +16,15 @@
 
     <!-- Iconos de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('assets/css/padre.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
+@yield('css')
 </head>
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">Trabajo en equipo</a>
+            <a class="navbar-brand" href="{{ url('admin/semanau') }}">Trabajo en equipo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -75,4 +77,5 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+ @yield('js')
 </html>
