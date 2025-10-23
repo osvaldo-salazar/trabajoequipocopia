@@ -9,8 +9,6 @@
                background-size: cover; 
                height: 45vh;">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">Bienvenido al hero de inicio</h1>
-            <p class="lead mb-4">Holaaaa</p>
         </div>
     </section>
 @endsection
