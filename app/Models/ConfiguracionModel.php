@@ -5,16 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Configuracion extends Model
+class ConfiguracionModel extends Model
 {
+    /** @use HasFactory<\Database\Factories\configuracion> */
     use HasFactory;
 
-    protected $table = 'configuraciones';
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+
+    protected $table = 'configuracion';
     protected $primaryKey = 'idConfiguracion';
-    
+
     protected $fillable = [
         'hero_home',
-        'section_matricula', 
+        'section_matricula',
         'section_semana_u',
         'hero_quienes_somos',
         'hero_noticias',
