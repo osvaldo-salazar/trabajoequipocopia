@@ -8,17 +8,12 @@
     style="background: url('{{ asset($config->hero_quienes_somos) }}') no-repeat center center; 
            background-size: cover; 
            height: 45vh;">
-    <div class="container">
-        <h1 class="display-4 fw-bold mb-3">Bienvenido al hero de inicio</h1>
-        <p class="lead mb-4">Holaaaa</p>
-    </div>
 </section>
 @endsection
 
 @section('contenido')
 <section class="py-5 bg-light" id="about-us">
     <div class="container">
-        <h2 class="text-center mb-4">Quiénes Somos</h2>
         <p class="text-center mb-4">Somos un equipo comprometido con la difusión de noticias y contenido de calidad para nuestra comunidad.</p>
         <div class="row text-center">
             <div class="col-md-4 mb-3">
