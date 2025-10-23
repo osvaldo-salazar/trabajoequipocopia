@@ -20,12 +20,18 @@
             </div>
 
             <div class="sidebar-nav">
-                <a class="nav-link" href="#">
-                    Noticias
+                <a class="nav-link" href="{{ route('admin.noticias.create') }}">
+                    Agregar Noticias
                 </a>
+
+                <a class="nav-link" href="{{ route('admin.noticias.lista') }}">
+                    Lista de Noticias
+                </a>
+
                 <a class="nav-link" href="{{ route('secciones.semanau') }}">
                     Administrar secciones
                 </a>
+                
                 <a class="nav-link" href="{{ route('admin.configuracion') }}">
                     Imágenes Hero
                 </a>

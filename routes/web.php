@@ -4,7 +4,9 @@ use App\Http\Controllers\WebSiteController;
 use App\Http\Controllers\SemanaUController;
 use App\Http\Controllers\QuienesSomosController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NoticiaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NoticiaPublicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +40,21 @@ Route::get('/home',[HomeController::class,'home'])->name('secciones.configuracio
 Route::get('/inicio', [WebSiteController::class, 'inicio'])->name('admin.configuracion.padre');
 
 // Si hay otras rutas nuevas de Marcos, colócalas aquí
+
+/*
+|--------------------------------------------------------------------------
+| RUTAS NOTICIAS (STACY)
+|--------------------------------------------------------------------------
+*/
+
+// ADMIN (gestión de noticias)
+Route::get('/admin', [NoticiaController::class, 'index'])->name('admin.noticias.create');
+Route::post('/admin/noticias', [NoticiaController::class, 'store'])->name('admin.noticias.store');
+Route::get('/admin/noticias/lista', [NoticiaController::class, 'lista'])->name('admin.noticias.lista');
+Route::delete('/admin/noticias/{noticia}', [NoticiaController::class, 'destroy'])->name('admin.noticias.destroy');
+
+// rutas de noticias-stacy 
+Route::get('/noticias', [NoticiaPublicController::class, 'index'])->name('noticias.index');
+Route::get('/noticias/{id}', [NoticiaPublicController::class, 'show'])->name('noticias.show');
+// Página de noticias con el carrusel (noticias destacadas)
+Route::get('/noticias', [NoticiaController::class, 'vistaNoticias'])->name('noticias.index');

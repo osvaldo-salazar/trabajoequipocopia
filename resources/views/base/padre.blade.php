@@ -35,7 +35,7 @@
                         <a class="nav-link" href="{{ url('/home') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/about') }}">Noticias</a>
+                        <a class="nav-link" href="{{ url('/noticias') }}">Noticias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/quienes') }}">Quienes somos</a>
